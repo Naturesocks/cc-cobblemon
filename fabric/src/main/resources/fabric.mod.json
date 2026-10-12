@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "${modid}",
+  "version": "${version}",
+  "name": "${name}",
+  "description": "${description}",
+  "authors": [
+    "${author_1}"
+  ],
+  "license": "MIT License",
+  "icon": "assets/example/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "at.cobblemon.fabric.FabricCCCobblemonMod"
+    ]
+  },
+  "depends": {
+    "minecraft": "1.21.1",
+    "cobblemon": "1.8.2"
+  }
+}
