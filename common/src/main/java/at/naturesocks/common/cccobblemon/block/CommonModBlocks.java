@@ -21,11 +21,11 @@ public class CommonModBlocks {
 
     public static Map<ResourceLocation, Block> QUEUE = new HashMap<>();
 
-    public static final Block SCANER_BLOCK = create("scaner", new Block(
-            BlockBehaviour.Properties.of()
-                    .destroyTime(2.0f)
-                    .sound(SoundType.STONE)
-    ));
+    public static final Block SCANNER_BLOCK = create("scanner", new ScannerBlock(
+                BlockBehaviour.Properties.of()
+                        .destroyTime(2.0f)
+                        .sound(SoundType.STONE)
+        ));
 
     public static Block create(String name, Block block)
     {
