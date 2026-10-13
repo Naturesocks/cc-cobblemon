@@ -6,7 +6,6 @@ import at.naturesocks.common.cccobblemon.block.CommonModBlocks;
 import at.naturesocks.common.cccobblemon.block.entities.CommonModBlockEntities;
 import at.naturesocks.common.cccobblemon.block.entities.ScannerBlockEntity;
 import at.naturesocks.common.cccobblemon.item.CommonModItems;
-import at.naturesocks.common.cccobblemon.peripherals.ModPeripherals;
 import at.naturesocks.common.cccobblemon.peripherals.ScannerPeripheral;
 import dan200.computercraft.api.peripheral.PeripheralCapability;
 import net.minecraft.world.item.Item;
@@ -30,7 +29,6 @@ public class ForgeCCCobblemonMod {
         registerBlockEntites(modBus);
         registerPeripherals(modBus);
 //        ModPeripherals.load();
-
     }
 
     public void registerBlocks(IEventBus modBus)
