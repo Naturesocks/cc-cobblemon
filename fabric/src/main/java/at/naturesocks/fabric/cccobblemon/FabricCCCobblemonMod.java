@@ -21,9 +21,9 @@ public class FabricCCCobblemonMod implements ModInitializer {
         CommonModBlockEntities.register((identifier, item) -> Registry.register(CommonModBlockEntities.registry, identifier, item));
         CommonModItems.register((identifier, item) -> Registry.register(CommonModItems.registry, identifier, item));
 
-//        PeripheralLookup.get().registerForBlockEntity((f, s) -> new ScannerPeripheral((ScannerBlockEntity) f), CommonModBlockEntities.SCANNER_BLOCK);
-//        PeripheralLookup.get().registerForBlockEntity((f, s) -> new HealingMachinePeripheral((HealingMachineBlockEntity) f, s), CobblemonBlockEntities.HEALING_MACHINE);
-//
-//        CommonTurtleUpgrade.register((identifier, upgradeType) -> Registry.register(CommonTurtleUpgrade.registry, identifier, upgradeType));
+        PeripheralLookup.get().registerForBlockEntity((f, s) -> new ScannerPeripheral((ScannerBlockEntity) f), CommonModBlockEntities.SCANNER_BLOCK);
+        PeripheralLookup.get().registerForBlockEntity((f, s) -> new HealingMachinePeripheral((HealingMachineBlockEntity) f, s), CobblemonBlockEntities.HEALING_MACHINE);
+
+        CommonTurtleUpgrade.register((identifier, upgradeType) -> Registry.register(CommonTurtleUpgrade.registry, identifier, upgradeType));
     }
 }
