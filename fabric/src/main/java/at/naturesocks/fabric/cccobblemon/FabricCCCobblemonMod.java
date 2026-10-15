@@ -4,8 +4,11 @@ import at.naturesocks.common.cccobblemon.block.CommonModBlocks;
 import at.naturesocks.common.cccobblemon.block.entities.CommonModBlockEntities;
 import at.naturesocks.common.cccobblemon.block.entities.ScannerBlockEntity;
 import at.naturesocks.common.cccobblemon.item.CommonModItems;
+import at.naturesocks.common.cccobblemon.peripherals.HealingMachinePeripheral;
 import at.naturesocks.common.cccobblemon.peripherals.ScannerPeripheral;
-import dan200.computercraft.api.ComputerCraftAPI;
+import at.naturesocks.common.cccobblemon.peripherals.turtle.CommonTurtleUpgrade;
+import com.cobblemon.mod.common.CobblemonBlockEntities;
+import com.cobblemon.mod.common.block.entity.HealingMachineBlockEntity;
 import dan200.computercraft.api.peripheral.PeripheralLookup;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.Registry;
@@ -18,5 +21,9 @@ public class FabricCCCobblemonMod implements ModInitializer {
         CommonModBlockEntities.register((identifier, item) -> Registry.register(CommonModBlockEntities.registry, identifier, item));
         CommonModItems.register((identifier, item) -> Registry.register(CommonModItems.registry, identifier, item));
 
-        PeripheralLookup.get().registerForBlockEntity((f, s) -> new ScannerPeripheral((ScannerBlockEntity) f), CommonModBlockEntities.SCANNER_BLOCK);    }
+//        PeripheralLookup.get().registerForBlockEntity((f, s) -> new ScannerPeripheral((ScannerBlockEntity) f), CommonModBlockEntities.SCANNER_BLOCK);
+//        PeripheralLookup.get().registerForBlockEntity((f, s) -> new HealingMachinePeripheral((HealingMachineBlockEntity) f, s), CobblemonBlockEntities.HEALING_MACHINE);
+//
+//        CommonTurtleUpgrade.register((identifier, upgradeType) -> Registry.register(CommonTurtleUpgrade.registry, identifier, upgradeType));
+    }
 }
