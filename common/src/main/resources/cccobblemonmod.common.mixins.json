@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "at.naturesocks.common.cccobblemon.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "HealingMachineBlockEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [],
+  "server": []
+}

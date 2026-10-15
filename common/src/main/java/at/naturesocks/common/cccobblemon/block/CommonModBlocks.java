@@ -1,7 +1,6 @@
 package at.naturesocks.common.cccobblemon.block;
 
 import at.naturesocks.common.cccobblemon.CommonCCCobblemonMod;
-import kotlin.Unit;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -13,7 +12,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 public class CommonModBlocks {
 

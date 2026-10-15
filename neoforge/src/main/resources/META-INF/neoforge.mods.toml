@@ -3,6 +3,12 @@ loaderVersion = "[1,)"
 #issueTrackerURL = "A valid URL to your issue tracker where people can open bug tickets"
 license = "MIT License"
 
+[[mixins]]
+config="${modid}.neoforge.mixins.json"
+[[mixins]]
+config="${modid}.common.mixins.json"
+
+
 [[mods]]
 modId = "${modid}"
 version = "${version}"

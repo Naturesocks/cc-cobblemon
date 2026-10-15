@@ -2,15 +2,11 @@ package at.naturesocks.common.cccobblemon.item;
 
 import at.naturesocks.common.cccobblemon.CommonCCCobblemonMod;
 import at.naturesocks.common.cccobblemon.block.CommonModBlocks;
-import com.cobblemon.mod.common.pokemon.ai.ItemBehavior;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,10 +29,5 @@ public class CommonModItems {
     public static void register(BiConsumer<ResourceLocation, Item> consumer)
     {
         QUEUE.forEach(consumer);
-    }
-
-    public static void load()
-    {
-
     }
 }
