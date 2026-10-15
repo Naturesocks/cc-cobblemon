@@ -2,6 +2,8 @@ package at.naturesocks.common.cccobblemon.item;
 
 import at.naturesocks.common.cccobblemon.CommonCCCobblemonMod;
 import at.naturesocks.common.cccobblemon.block.CommonModBlocks;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -15,6 +17,7 @@ import java.util.function.BiConsumer;
 public class CommonModItems {
 
     public static ResourceKey resourceKey = Registries.ITEM;
+    public static Registry<Item> registry = BuiltInRegistries.ITEM;
 
     public static Map<ResourceLocation, Item> QUEUE = new HashMap<>();
 

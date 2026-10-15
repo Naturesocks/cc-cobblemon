@@ -58,7 +58,6 @@ public class ForgeCCCobblemonMod {
         modBus.addListener((RegisterCapabilitiesEvent event) -> {
             event.registerBlockEntity(PeripheralCapability.get(), CommonModBlockEntities.SCANNER_BLOCK, (b, d) -> new ScannerPeripheral((ScannerBlockEntity) b));
             event.registerBlockEntity(PeripheralCapability.get(), CobblemonBlockEntities.HEALING_MACHINE, HealingMachinePeripheral::new);
-
         });
     }
 }

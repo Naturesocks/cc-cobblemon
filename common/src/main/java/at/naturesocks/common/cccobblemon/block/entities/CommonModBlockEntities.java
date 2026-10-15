@@ -1,9 +1,12 @@
 package at.naturesocks.common.cccobblemon.block.entities;
 
 import at.naturesocks.common.cccobblemon.CommonCCCobblemonMod;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import java.util.HashMap;
@@ -14,6 +17,7 @@ import java.util.function.BiConsumer;
 public class CommonModBlockEntities {
 
     public static ResourceKey resourceKey = Registries.BLOCK_ENTITY_TYPE;
+    public static Registry<BlockEntityType<?>> registry = BuiltInRegistries.BLOCK_ENTITY_TYPE;
 
     public static Map<ResourceLocation, BlockEntityType> QUEUE = new HashMap<>();
 

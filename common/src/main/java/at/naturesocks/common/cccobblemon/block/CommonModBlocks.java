@@ -2,9 +2,11 @@ package at.naturesocks.common.cccobblemon.block;
 
 import at.naturesocks.common.cccobblemon.CommonCCCobblemonMod;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -16,6 +18,7 @@ import java.util.function.BiConsumer;
 public class CommonModBlocks {
 
     public static ResourceKey<Registry<Block>> resourceKey = Registries.BLOCK;
+    public static Registry<Block> registry = BuiltInRegistries.BLOCK;
 
     public static Map<ResourceLocation, Block> QUEUE = new HashMap<>();
 
