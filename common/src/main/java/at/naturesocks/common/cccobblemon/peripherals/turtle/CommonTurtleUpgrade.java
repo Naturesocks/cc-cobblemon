@@ -17,7 +17,6 @@ import java.util.function.Supplier;
 
 public class CommonTurtleUpgrade {
 
-    public static ResourceKey<Registry<Block>> resourceKey = Registries.BLOCK;
     public static final Registry registry = BuiltInRegistries.REGISTRY.get(ITurtleUpgrade.typeRegistry().location());
 
     public static Map<ResourceLocation, UpgradeType> QUEUE = new HashMap<>();

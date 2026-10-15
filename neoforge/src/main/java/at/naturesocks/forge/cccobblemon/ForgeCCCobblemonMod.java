@@ -6,27 +6,31 @@ import at.naturesocks.common.cccobblemon.block.entities.CommonModBlockEntities;
 import at.naturesocks.common.cccobblemon.block.entities.ScannerBlockEntity;
 import at.naturesocks.common.cccobblemon.item.CommonModItems;
 import at.naturesocks.common.cccobblemon.peripherals.HealingMachinePeripheral;
-import at.naturesocks.common.cccobblemon.peripherals.ScannerPeripheral;
+import at.naturesocks.common.cccobblemon.peripherals.computer.ScannerPeripheral;
+import at.naturesocks.common.cccobblemon.peripherals.pocket.CommonPocketUpgrade;
+import at.naturesocks.common.cccobblemon.peripherals.turtle.CommonTurtleUpgrade;
 import com.cobblemon.mod.common.CobblemonBlockEntities;
 import dan200.computercraft.api.peripheral.PeripheralCapability;
+import dan200.computercraft.api.pocket.IPocketUpgrade;
+import dan200.computercraft.api.turtle.ITurtleUpgrade;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
-import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
 @Mod(CommonCCCobblemonMod.MOD_ID)
 public class ForgeCCCobblemonMod {
 
     public ForgeCCCobblemonMod(IEventBus modBus) {
-        NeoForge.EVENT_BUS.register(this);
         registerBlocks(modBus);
         registerItems(modBus);
         registerBlockEntites(modBus);
         registerPeripherals(modBus);
+        registerTurtleUpgrades(modBus);
+        registerPocketUpgrade(modBus);
     }
 
     public void registerBlocks(IEventBus modBus)
@@ -58,6 +62,32 @@ public class ForgeCCCobblemonMod {
         modBus.addListener((RegisterCapabilitiesEvent event) -> {
             event.registerBlockEntity(PeripheralCapability.get(), CommonModBlockEntities.SCANNER_BLOCK, (b, d) -> new ScannerPeripheral((ScannerBlockEntity) b));
             event.registerBlockEntity(PeripheralCapability.get(), CobblemonBlockEntities.HEALING_MACHINE, HealingMachinePeripheral::new);
+        });
+    }
+
+    private void registerTurtleUpgrades(IEventBus modBus) {
+        modBus.addListener((RegisterEvent event) -> {
+            CommonTurtleUpgrade.register((indentifier, upgrade) -> {
+                event.register(
+                        ITurtleUpgrade.typeRegistry(),
+                        indentifier,
+                        () -> upgrade
+                );
+            });
+
+        });
+    }
+
+    private void registerPocketUpgrade(IEventBus modBus) {
+        modBus.addListener((RegisterEvent event) -> {
+            CommonPocketUpgrade.register((indentifier, upgrade) -> {
+                event.register(
+                        IPocketUpgrade.typeRegistry(),
+                        indentifier,
+                        () -> upgrade
+                );
+            });
+
         });
     }
 }
