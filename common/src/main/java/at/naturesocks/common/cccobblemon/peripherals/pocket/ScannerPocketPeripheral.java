@@ -95,14 +95,22 @@ public class ScannerPocketPeripheral implements ScannerBase, IPeripheral {
     }
 
     @LuaFunction
-    public final Map<Integer, String> getDiscoveredSpecies()
+    public final Map<Integer, Object> getDiscoveredSpecies()
     {
         if (this.access.getEntity() instanceof ServerPlayer serverPlayer) {
             PokedexManager pokedexManager = PlayerExtensionsKt.pokedex(serverPlayer);
+            Map<Integer, Object> out = new HashMap<>();
+            int counter = 1;
             for (Map.Entry<ResourceLocation, SpeciesDexRecord> entry : pokedexManager.getSpeciesRecords().entrySet())
             {
-
+                Map<String, Object> record = new HashMap<>();
+                SpeciesDexRecord speciesDexRecord = entry.getValue();
+                record.putAll(PokemonHelper.getSpeciesRecords(speciesDexRecord));
+                record.putAll(PokemonHelper.getSpeciesInformation(speciesDexRecord));
+                out.put(counter, record);
+                counter++;
             }
+            return out;
         }
         return null;
     }
