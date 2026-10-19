@@ -12,12 +12,12 @@ config="${modid}.common.mixins.json"
 [[mods]]
 modId = "${modid}"
 version = "${version}"
-displayName = "${name}"
+displayName = "${mod_name}"
 authors = "${author_1}"
 description = '''
 ${description}
 '''
-#logoFile = ""
+logoFile = "ccCobblemon.png"
 
 [[dependencies.${modid}]]
 modId = "minecraft"
@@ -37,5 +37,12 @@ side = "BOTH"
 modId = "cobblemon"
 mandatory = true
 versionRange = "[1.8.2,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${modid}]]
+modId = "computercraft"
+mandatory = true
+versionRange = "[${cc_version},)"
 ordering = "AFTER"
 side = "BOTH"
