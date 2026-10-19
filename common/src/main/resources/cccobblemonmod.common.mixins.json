@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "at.naturesocks.common.cccobblemon.mixin",
+  "package": "at.naturesocks.common.cccobblemonmod.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "HealingMachineBlockEntityMixin"

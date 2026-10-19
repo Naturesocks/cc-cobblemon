@@ -4,8 +4,6 @@ loaderVersion = "[1,)"
 license = "MIT License"
 
 [[mixins]]
-config="${modid}.neoforge.mixins.json"
-[[mixins]]
 config="${modid}.common.mixins.json"
 
 

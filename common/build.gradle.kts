@@ -26,6 +26,8 @@ dependencies {
     compileOnly("org.spongepowered:mixin:0.8.7")
 
     modImplementation("cc.tweaked:cc-tweaked-${property("minecraft_version")}-common-api:${property("cc_version")}")
+    modImplementation("cc.tweaked:cc-tweaked-${property("minecraft_version")}-common:${property("cc_version")}")
+
 }
 
 tasks.test {

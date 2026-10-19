@@ -12,7 +12,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "at.naturesocks.fabric.cccobblemon.FabricCCCobblemonMod"
+      "at.naturesocks.fabric.cccobblemonmod.FabricCCCobblemonMod"
     ]
   },
   "depends": {
