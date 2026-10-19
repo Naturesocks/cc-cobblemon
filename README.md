@@ -1,4 +1,6 @@
 # CC-Cobblemon
+
+![ccCobblemon.png](images/ccCobblemon.png)
  
 CC-Cobblemon adds compatibility with [CC: Tweaked](https://tweaked.cc/) and [Cobblemon](https://cobblemon.com).
 
