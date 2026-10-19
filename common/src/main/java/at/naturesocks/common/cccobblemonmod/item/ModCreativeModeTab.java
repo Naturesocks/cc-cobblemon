@@ -34,7 +34,7 @@ public class ModCreativeModeTab {
 
     public static final CreativeModeTab CCCOBBLEMON_TAB = create("cccoblemon_tab", CreativeModeTab.builder(CreativeModeTab.Row.TOP, 1)
             .icon(() -> new ItemStack(CommonModItems.SCANNER_BLOCK))
-            .title(Component.translatable("cccobblemon_tab"))
+            .title(Component.translatable("cccobblemonmod.cccobblemon_tab"))
             .displayItems(((itemDisplayParameters, output) -> {
                 output.accept(CommonModItems.SCANNER_BLOCK);
 
