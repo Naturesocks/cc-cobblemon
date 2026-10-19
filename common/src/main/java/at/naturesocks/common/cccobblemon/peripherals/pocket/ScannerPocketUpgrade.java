@@ -5,16 +5,13 @@ import dan200.computercraft.api.pocket.AbstractPocketUpgrade;
 import dan200.computercraft.api.pocket.IPocketAccess;
 import dan200.computercraft.api.pocket.IPocketUpgrade;
 import dan200.computercraft.api.upgrades.UpgradeType;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import org.jspecify.annotations.Nullable;
 
 public class ScannerPocketUpgrade extends AbstractPocketUpgrade {
 
-    private IPocketAccess access;
-
-    protected ScannerPocketUpgrade(ItemStack stack) {
-        super(Component.literal("scanner"), stack);
+    public ScannerPocketUpgrade(ItemStack stack) {
+        super("cccobblemon.pocket.scanner", stack);
     }
 
     @Override

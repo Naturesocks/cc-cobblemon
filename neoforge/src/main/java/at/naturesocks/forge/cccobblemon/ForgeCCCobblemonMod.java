@@ -5,7 +5,8 @@ import at.naturesocks.common.cccobblemon.block.CommonModBlocks;
 import at.naturesocks.common.cccobblemon.block.entities.CommonModBlockEntities;
 import at.naturesocks.common.cccobblemon.block.entities.ScannerBlockEntity;
 import at.naturesocks.common.cccobblemon.item.CommonModItems;
-import at.naturesocks.common.cccobblemon.peripherals.HealingMachinePeripheral;
+import at.naturesocks.common.cccobblemon.peripherals.computer.HealingMachinePeripheral;
+import at.naturesocks.common.cccobblemon.peripherals.computer.PasturePeripheral;
 import at.naturesocks.common.cccobblemon.peripherals.computer.ScannerPeripheral;
 import at.naturesocks.common.cccobblemon.peripherals.pocket.CommonPocketUpgrade;
 import at.naturesocks.common.cccobblemon.peripherals.turtle.CommonTurtleUpgrade;
@@ -62,6 +63,8 @@ public class ForgeCCCobblemonMod {
         modBus.addListener((RegisterCapabilitiesEvent event) -> {
             event.registerBlockEntity(PeripheralCapability.get(), CommonModBlockEntities.SCANNER_BLOCK, (b, d) -> new ScannerPeripheral((ScannerBlockEntity) b));
             event.registerBlockEntity(PeripheralCapability.get(), CobblemonBlockEntities.HEALING_MACHINE, HealingMachinePeripheral::new);
+            event.registerBlockEntity(PeripheralCapability.get(), CobblemonBlockEntities.PASTURE, PasturePeripheral::new);
+
         });
     }
 
@@ -74,7 +77,6 @@ public class ForgeCCCobblemonMod {
                         () -> upgrade
                 );
             });
-
         });
     }
 

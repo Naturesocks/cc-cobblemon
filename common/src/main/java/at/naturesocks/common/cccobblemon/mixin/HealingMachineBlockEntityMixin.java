@@ -1,7 +1,7 @@
 package at.naturesocks.common.cccobblemon.mixin;
 
 import at.naturesocks.common.cccobblemon.misc.PokemonHelper;
-import at.naturesocks.common.cccobblemon.peripherals.HealingMachinePeripheral;
+import at.naturesocks.common.cccobblemon.peripherals.computer.HealingMachinePeripheral;
 import com.cobblemon.mod.common.api.storage.party.PartyStore;
 import com.cobblemon.mod.common.block.entity.HealingMachineBlockEntity;
 import dan200.computercraft.api.peripheral.IComputerAccess;
@@ -31,14 +31,24 @@ public class HealingMachineBlockEntityMixin {
 
         IComputerAccess computer = HealingMachinePeripheral.COMPUTER_MAP.get(entity.getBlockPos());
 
-        assert entity.getLevel() != null;
+        if (entity.getLevel() == null)
+        {
+            return;
+        }
+        if (entity.getLevel().getServer() == null)
+        {
+            return;
+        }
         ServerPlayer player = entity.getLevel().getServer().getPlayerList().getPlayer(uuid);
-
+        if (player == null)
+        {
+            return;
+        }
 
         Map<String, Object> eventData = new HashMap<>();
         eventData.put("trainer", player.getName().getString());
-        var data = PokemonHelper.getMultiplePokemonData(partyStore);
-        eventData.put("team", data);
+        var team = PokemonHelper.getMultiplePokemonData(partyStore.iterator());
+        eventData.put("team", team);
         computer.queueEvent("healing_machine_used", eventData);
     }
 }

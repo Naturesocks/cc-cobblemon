@@ -12,13 +12,13 @@ import org.jspecify.annotations.Nullable;
 public class ScannerPeripheral implements ScannerBase, IPeripheral {
 
     private final ScannerBlockEntity scannerBlockEntity;
-
     private int range = 1;
 
     public ScannerPeripheral(ScannerBlockEntity scannerBlockEntity) {
         this.scannerBlockEntity = scannerBlockEntity;
     }
 
+    // Peripheral
     @Override
     public @NonNull String getType() {
         return "scanner";
@@ -39,15 +39,16 @@ public class ScannerPeripheral implements ScannerBase, IPeripheral {
         return this.scannerBlockEntity.getLevel();
     }
 
+    // Lua Functions
     @Override
     @LuaFunction
-    public void setScannerRange(int range) {
+    public final void setScannerRange(int range) {
         this.range = Math.clamp(range, 1, 10);
     }
 
     @Override
     @LuaFunction
-    public int getScannerRange() {
+    public final int getScannerRange() {
         return this.range;
     }
 }

@@ -1,23 +1,26 @@
 package at.naturesocks.common.cccobblemon.misc;
 
-import com.cobblemon.mod.common.api.storage.PokemonStore;
+import com.cobblemon.mod.common.api.pokedex.SpeciesDexRecord;
+import com.cobblemon.mod.common.api.riding.RidingProperties;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import dan200.computercraft.api.detail.VanillaDetailRegistries;
+import net.minecraft.network.chat.Component;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class PokemonHelper {
 
-    public static Map<Integer, Map<String, Object>> getMultiplePokemonData(PokemonStore store)
+    public static Map<Integer, Map<String, Object>> getMultiplePokemonData(Iterator<Pokemon> store)
     {
         Map<Integer, Map<String, Object>> out = new HashMap<>();
 
         int counter = 1;
-        for (Iterator it = store.iterator(); it.hasNext(); ) {
-            Pokemon pokemon = (Pokemon) it.next();
+        while (store.hasNext()) {
+            Pokemon pokemon = store.next();
             out.put(counter, getPokemonData(pokemon));
             counter++;
         }
@@ -46,15 +49,36 @@ public class PokemonHelper {
         if (pokemon.getActiveMark() != null){
             out.put("mark", pokemon.getActiveMark().getTitle());
         }
-        Map<String, Object> stats = new HashMap<>();
-        stats.put("hp", pokemon.getMaxHealth());
-        stats.put("current_hp", pokemon.getCurrentHealth());
-        stats.put("atk", pokemon.getAttack());
-        stats.put("sp_atk", pokemon.getSpecialAttack());
-        stats.put("def", pokemon.getDefence());
-        stats.put("sp_def", pokemon.getSpecialDefence());
-        stats.put("speed", pokemon.getSpecialDefence());
-        out.put("stats", stats);
+
+        // it works but is that smart?
+        {
+            Map<String, Object> stats = new HashMap<>();
+            stats.put("hp", pokemon.getMaxHealth());
+            stats.put("current_hp", pokemon.getCurrentHealth());
+            stats.put("atk", pokemon.getAttack());
+            stats.put("sp_atk", pokemon.getSpecialAttack());
+            stats.put("def", pokemon.getDefence());
+            stats.put("sp_def", pokemon.getSpecialDefence());
+            stats.put("speed", pokemon.getSpecialDefence());
+            out.put("stats", stats);
+        }
+
+        RidingProperties properties = pokemon.getRiding();
+        if (properties.getBehaviours() != null)
+        {
+            Map<String, Object> ridingProperties = new HashMap<>();
+            properties.getBehaviours().forEach((key1, value1) -> {
+                var stats = value1.getStats();
+                Map<String, String> converted = stats.entrySet().stream().collect(Collectors.toMap(
+                        (key) -> key.getKey().getDisplayName().getString(),
+                        (value) -> value.getValue().toString()
+                ));
+                ridingProperties.put(key1.name(), converted);
+            });
+
+            out.put("riding_properties", ridingProperties);
+        }
+
         return out;
     }
 
@@ -64,6 +88,24 @@ public class PokemonHelper {
         out.put("isBattling", pokemonEntity.isBattling());
         out.put("battle_id", pokemonEntity.getBattleId());
         out.put("aspects", pokemonEntity.getAspects());
+        return out;
+    }
+
+    public static Map<String, Object> getSpeciesRecords(SpeciesDexRecord speciesRecord) {
+        Map<String, Object> out = new HashMap<>();
+        out.put("id", speciesRecord.getId());
+        out.put("knowledge", speciesRecord.getKnowledge().getSerializedName());
+        out.put("aspects", speciesRecord.getAspects());
+
+        return out;
+    }
+
+    public static Map<String, Object> getSpeciesInformation(SpeciesDexRecord speciesRecord)
+    {
+        Map<String, Object> out = new HashMap<>();
+        String name = speciesRecord.getId().getPath();
+        out.put("name", Component.translatable("cobblemon.species." + name + ".name").getString());
+        out.put("desc", Component.translatable("cobblemon.species." + name + ".desc").getString());
         return out;
     }
 }

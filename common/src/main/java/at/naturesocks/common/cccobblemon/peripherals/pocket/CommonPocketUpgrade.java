@@ -1,9 +1,7 @@
 package at.naturesocks.common.cccobblemon.peripherals.pocket;
 
 import at.naturesocks.common.cccobblemon.CommonCCCobblemonMod;
-import at.naturesocks.common.cccobblemon.peripherals.turtle.ScannerTurtleUpgrade;
 import dan200.computercraft.api.pocket.IPocketUpgrade;
-import dan200.computercraft.api.turtle.ITurtleUpgrade;
 import dan200.computercraft.api.upgrades.UpgradeType;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -27,7 +25,7 @@ public class CommonPocketUpgrade {
     public static UpgradeType create(String name, Supplier<UpgradeType> supplier)
     {
         UpgradeType type = supplier.get();
-        QUEUE.put(ResourceLocation.fromNamespaceAndPath(CommonCCCobblemonMod.MOD_ID, name), type);
+        QUEUE.put(CommonCCCobblemonMod.resource(name), type);
         return type;
     }
 

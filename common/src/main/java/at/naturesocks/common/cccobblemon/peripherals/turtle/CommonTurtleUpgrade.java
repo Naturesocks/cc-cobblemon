@@ -5,10 +5,7 @@ import dan200.computercraft.api.turtle.ITurtleUpgrade;
 import dan200.computercraft.api.upgrades.UpgradeType;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +25,7 @@ public class CommonTurtleUpgrade {
     public static UpgradeType create(String name, Supplier<UpgradeType> supplier)
     {
         UpgradeType type = supplier.get();
-        QUEUE.put(ResourceLocation.fromNamespaceAndPath(CommonCCCobblemonMod.MOD_ID, name), type);
+        QUEUE.put(CommonCCCobblemonMod.resource(name), type);
         return type;
     }
 

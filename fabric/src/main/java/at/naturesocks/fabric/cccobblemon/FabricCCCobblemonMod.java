@@ -4,7 +4,7 @@ import at.naturesocks.common.cccobblemon.block.CommonModBlocks;
 import at.naturesocks.common.cccobblemon.block.entities.CommonModBlockEntities;
 import at.naturesocks.common.cccobblemon.block.entities.ScannerBlockEntity;
 import at.naturesocks.common.cccobblemon.item.CommonModItems;
-import at.naturesocks.common.cccobblemon.peripherals.HealingMachinePeripheral;
+import at.naturesocks.common.cccobblemon.peripherals.computer.HealingMachinePeripheral;
 import at.naturesocks.common.cccobblemon.peripherals.computer.ScannerPeripheral;
 import at.naturesocks.common.cccobblemon.peripherals.pocket.CommonPocketUpgrade;
 import at.naturesocks.common.cccobblemon.peripherals.turtle.CommonTurtleUpgrade;

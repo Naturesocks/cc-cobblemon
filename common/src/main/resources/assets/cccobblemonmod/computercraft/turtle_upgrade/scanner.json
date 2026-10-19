@@ -1,0 +1,5 @@
+{
+  "type": "computercraft:sided",
+  "left": "cccobblemonmod:block/turtle_scanner_left",
+  "right": "cccobblemonmod:block/turtle_scanner_right"
+}

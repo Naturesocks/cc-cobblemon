@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "cccobblemonmod:block/scanner_side",
+    "end": "cccobblemonmod:block/scanner_top"
+  }
+}

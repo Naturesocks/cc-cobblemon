@@ -25,7 +25,7 @@ public class CommonModItems {
 
     public static Item create(String name, Item item)
     {
-        QUEUE.put(ResourceLocation.fromNamespaceAndPath(CommonCCCobblemonMod.MOD_ID, name), item);
+        QUEUE.put(CommonCCCobblemonMod.resource(name), item);
         return item;
     }
 

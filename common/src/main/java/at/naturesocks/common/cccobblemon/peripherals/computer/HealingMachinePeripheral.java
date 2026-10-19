@@ -1,4 +1,4 @@
-package at.naturesocks.common.cccobblemon.peripherals;
+package at.naturesocks.common.cccobblemon.peripherals.computer;
 
 import com.cobblemon.mod.common.block.entity.HealingMachineBlockEntity;
 import dan200.computercraft.api.lua.LuaFunction;
@@ -6,6 +6,7 @@ import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import java.util.HashMap;
@@ -22,8 +23,9 @@ public class HealingMachinePeripheral implements IPeripheral {
         this.entity = entity;
     }
 
+    // Peripheral
     @Override
-    public String getType() {
+    public @NonNull String getType() {
         return "healing_machine";
     }
 
@@ -33,15 +35,16 @@ public class HealingMachinePeripheral implements IPeripheral {
     }
 
     @Override
-    public void attach(IComputerAccess computer) {
+    public void attach(@NonNull IComputerAccess computer) {
         COMPUTER_MAP.put(this.entity.getBlockPos(), computer);
     }
 
     @Override
-    public void detach(IComputerAccess computer) {
+    public void detach(@NonNull IComputerAccess computer) {
         COMPUTER_MAP.remove(this.entity.getBlockPos());
     }
 
+    // Lua Functions
     @LuaFunction
     public final float getCharge()
     {
