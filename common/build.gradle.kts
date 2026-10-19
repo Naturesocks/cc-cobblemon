@@ -13,7 +13,6 @@ loom {
 
 repositories {
     maven("https://maven.neoforged.net/releases/")
-    maven("https://mvnrepository.com/artifact/org.spongepowered/mixin")
 }
 
 dependencies {
