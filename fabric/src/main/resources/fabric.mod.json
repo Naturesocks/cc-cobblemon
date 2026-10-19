@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "id": "${modid}",
   "version": "${version}",
-  "name": "${name}",
+  "name": "${mod_name}",
   "description": "${description}",
   "authors": [
     "${author_1}"
   ],
   "license": "MIT License",
-  "icon": "assets/example/icon.png",
+  "icon": "assets/ccCobblemon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -17,6 +17,10 @@
   },
   "depends": {
     "minecraft": "1.21.1",
-    "cobblemon": "1.8.2"
-  }
+    "cobblemon": "1.8.2",
+    "computercraft": "1.120.2"
+  },
+  "mixins": [
+    "cccobblemonmod.common.mixins.json"
+  ]
 }

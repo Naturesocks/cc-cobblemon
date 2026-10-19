@@ -19,8 +19,8 @@ public class FabricCCCobblemonMod implements ModInitializer {
     @Override
     public void onInitialize() {
         CommonModBlocks.register((identifier, item) -> Registry.register(CommonModBlocks.registry, identifier, item));
-        CommonModBlockEntities.register((identifier, item) -> Registry.register(CommonModBlockEntities.registry, identifier, item));
         CommonModItems.register((identifier, item) -> Registry.register(CommonModItems.registry, identifier, item));
+        CommonModBlockEntities.register((identifier, item) -> Registry.register(CommonModBlockEntities.registry, identifier, item));
 
         PeripheralLookup.get().registerForBlockEntity((f, s) -> new ScannerPeripheral((ScannerBlockEntity) f), CommonModBlockEntities.SCANNER_BLOCK);
         PeripheralLookup.get().registerForBlockEntity((f, s) -> new HealingMachinePeripheral((HealingMachineBlockEntity) f, s), CobblemonBlockEntities.HEALING_MACHINE);
